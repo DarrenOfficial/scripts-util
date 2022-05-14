@@ -314,13 +314,13 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 		elif [[ "$os" == "centos" && "$os_version" -eq 8 ]]; then
 			# CentOS 8
 			dnf install -y epel-release elrepo-release
-			dnf install -y kmod-wireguard wireguard-tools qrencode $firewall
+			dnf install -y wireguard-dkms wireguard-tools qrencode $firewall
 			mkdir -p /etc/wireguard/
 		elif [[ "$os" == "centos" && "$os_version" -eq 7 ]]; then
 			# CentOS 7
 			yum install -y epel-release https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 			yum install -y yum-plugin-elrepo
-			yum install -y kmod-wireguard wireguard-tools qrencode $firewall
+			yum install -y wireguard-dkms wireguard-tools qrencode $firewall
 			mkdir -p /etc/wireguard/
 		elif [[ "$os" == "fedora" ]]; then
 			# Fedora
@@ -637,11 +637,11 @@ else
 						apt-get remove --purge -y wireguard wireguard-dkms wireguard-tools
 					elif [[ "$os" == "centos" && "$os_version" -eq 8 ]]; then
 						# CentOS 8
-						dnf remove -y kmod-wireguard wireguard-tools
+						dnf remove -y wireguard-dkms wireguard-tools
 						rm -rf /etc/wireguard/
 					elif [[ "$os" == "centos" && "$os_version" -eq 7 ]]; then
 						# CentOS 7
-						yum remove -y kmod-wireguard wireguard-tools
+						yum remove -y wireguard-dkms wireguard-tools
 						rm -rf /etc/wireguard/
 					elif [[ "$os" == "fedora" ]]; then
 						# Fedora
