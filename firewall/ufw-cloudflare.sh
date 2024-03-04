@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo "Adding allow in from Cloudflare IPv4 & IPv6"
 curl -s https://www.cloudflare.com/ips-v4 -o /tmp/cf_ips
 echo "" >> /tmp/cf_ips
 curl -s https://www.cloudflare.com/ips-v6 >> /tmp/cf_ips
